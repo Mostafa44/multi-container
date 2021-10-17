@@ -19,8 +19,8 @@ services:
       dockerfile: Dockerfile.dev
       context: ./server
     volumes:
-      - /mnt/c/Users/Mostafa/Desktop/DevSpace/docker_space/multi-container/app/node_modules
-      - /mnt/c/Users/Mostafa/Desktop/DevSpace/docker_space/multi-container/server:/app
+      - /app/node_modules
+      - ./server:/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
@@ -34,15 +34,15 @@ services:
       dockerfile: Dockerfile.dev
       context: ./client
     volumes:
-      - /mnt/c/Users/Mostafa/Desktop/DevSpace/docker_space/multi-container/app/node_modules
-      - /mnt/c/Users/Mostafa/Desktop/DevSpace/docker_space/multi-container/client:/app
+      - /app/node_modules
+      - ./client:/app
   worker:
     build:
       dockerfile: Dockerfile.dev
       context: ./worker
     volumes:
-      - /mnt/c/Users/Mostafa/Desktop/DevSpace/docker_space/multi-container/app/node_modules
-      - /mnt/c/Users/Mostafa/Desktop/DevSpace/docker_space/multi-container/worker:/app
+      - /app/node_modules
+      - ./worker:/app
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
